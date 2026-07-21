@@ -10,6 +10,7 @@
 - Fail-closed unsupported-platform and missing-backend behavior.
 - Backend admission probe so sandbox setup failures cannot masquerade as successful containment.
 - macOS and Linux CI, with the live containment probe running on macOS.
+- Immutable GitHub Actions pins for the current Node 24 checkout and Python setup releases.
 
 ### Security
 

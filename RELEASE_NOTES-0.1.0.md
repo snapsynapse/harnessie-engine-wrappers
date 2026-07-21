@@ -10,4 +10,5 @@ Security posture:
 - A clean allowed-operation control and backend admission probe prevent sandbox setup failures from masquerading as successful denial.
 - Every target machine must earn admission with its own local probe.
 - No third-party wrapper code was copied or adapted for the seed.
+- CI dependencies are pinned to immutable commits.
 - The contract is credential-file reads only. See `SECURITY.md` for residuals.
