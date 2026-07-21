@@ -1,0 +1,35 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-14]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -e . pytest
+      - run: python -m pytest -q
+        env:
+          HEW_REQUIRE_LIVE_PROBE: ${{ runner.os == 'macOS' && '1' || '0' }}
+      - name: Run live confinement probe
+        if: runner.os == 'macOS'
+        run: harnessie-engine-wrapper-probe
+      - name: Prove unsupported platforms fail closed
+        if: runner.os == 'Linux'
+        run: |
+          set +e
+          harnessie-engine-wrapper -- true
+          code=$?
+          set -e
+          test "$code" = "69"

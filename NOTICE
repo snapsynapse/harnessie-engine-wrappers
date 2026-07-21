@@ -1,0 +1,9 @@
+Harnessie Engine Wrappers
+Copyright 2026 Snap Synapse LLC
+
+This product includes software developed by Snap Synapse LLC.
+
+The initial 0.1.0 seed was freshly authored for this repository following the
+public decision in Harnessie AIDR-0008. It does not copy or adapt code from the
+community pull requests discussed by that decision. Contributions are accepted
+only from authors who consent to submit their work under Apache-2.0.

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "harnessie-engine-wrappers"
+version = "0.1.0"
+description = "Probe-gated engine wrappers that fail closed when local credential-read containment cannot be verified."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Snap Synapse LLC" }]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/snapsynapse/harnessie-engine-wrappers"
+Issues = "https://github.com/snapsynapse/harnessie-engine-wrappers/issues"
+
+[project.scripts]
+harnessie-engine-wrapper = "harnessie_engine_wrappers.cli:main"
+harnessie-engine-wrapper-probe = "harnessie_engine_wrappers.probe:main"
+
+[tool.setuptools.package-data]
+harnessie_engine_wrappers = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
